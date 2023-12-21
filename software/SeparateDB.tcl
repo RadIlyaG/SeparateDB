@@ -45,6 +45,11 @@ proc SepDB {targ} {
   
   set tim [time {file copy -force $locTargDBfile $targDBfile}]
   puts "tim3:<$tim>"
+  
+  set tim [time {file delete -force $locSourDBfile}]
+  puts "tim4:<$tim>"
+  set tim [time {file delete -force $locTargDBfile}]
+  puts "tim5:<$tim>"
 }
 
-puts "SepDB Phil"
+SepDB Philippines
