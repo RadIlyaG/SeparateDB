@@ -13,7 +13,10 @@ proc SepDB {targ} {
   
   set sourDBfile [file join $dbLocation JerAteStats.db]
   set locSourDBfile JerAteStats.db
-  set targDBfile [file join $dbLocation $targ.db]
+  if ![file exists [file join $dbLocation $targ]] {
+    file mkdir [file join $dbLocation $targ]
+  }
+  set targDBfile [file join $dbLocation $targ/JerAteStats.db]
   set locTargDBfile $targ.db
   
   set tim [time {file copy -force $sourDBfile $locSourDBfile}]
